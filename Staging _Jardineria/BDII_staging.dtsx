@@ -1,0 +1,2814 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/5/2024 3:39:48 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-Q5J7EIQ"
+  DTS:CreatorName="DESKTOP-Q5J7EIQ\Yamit"
+  DTS:DTSID="{C817AAFF-8347-457D-BC53-A829A606D11C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{BCB2EA7C-3EA2-4FE4-9D64-E9436E766657}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extraccion_JDB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{E0D171FB-9FE4-406C-A24D-EBE4D56C6BB3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extraccion_JDB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extraccion_JDB\Destino Tb_clientes_staging"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino Tb_clientes_staging"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Destino Tb_clientes_staging"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Connections[IDbConnection]"
+                  connectionManagerID="{DC9FF696-B447-410E-9D60-4CDCC7C407E1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.Staging_Jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].Columns[nombre_cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nombre_cliente"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_cliente]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre_cliente]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].Columns[telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="telefono"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[telefono]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[telefono]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].Columns[limite_credito]"
+                      cachedDataType="numeric"
+                      cachedName="limite_credito"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[limite_credito]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[limite_credito]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_cliente]"
+                      cachedDataType="i4"
+                      cachedName="ID_cliente"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente_origen]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente]"
+                      dataType="i4"
+                      name="ID_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente_origen]"
+                      dataType="i4"
+                      name="ID_cliente_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[telefono]"
+                      dataType="wstr"
+                      length="15"
+                      name="telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[limite_credito]"
+                      dataType="numeric"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Destino Tb_empleado_staging"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino Tb_empleado_staging"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Destino Tb_empleado_staging"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Connections[IDbConnection]"
+                  connectionManagerID="{DC9FF696-B447-410E-9D60-4CDCC7C407E1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.Staging_Jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[apellido1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="apellido1"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[apellido1]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[apellido1]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[email]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[puesto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="puesto"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[puesto]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[puesto]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_oficina]"
+                      cachedDataType="i4"
+                      cachedName="ID_oficina"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_oficina]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_oficina]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="telefono"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[telefono]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[telefono]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Descripcion"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Descripcion]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_empleado]"
+                      cachedDataType="i4"
+                      cachedName="ID_empleado"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_empleado_origen]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_empleado]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_empleado]"
+                      dataType="i4"
+                      name="ID_empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_empleado_origen]"
+                      dataType="i4"
+                      name="ID_empleado_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[apellido1]"
+                      dataType="wstr"
+                      length="50"
+                      name="apellido1" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[puesto]"
+                      dataType="wstr"
+                      length="50"
+                      name="puesto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_oficina]"
+                      dataType="i4"
+                      name="ID_oficina" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[telefono]"
+                      dataType="wstr"
+                      length="20"
+                      name="telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="10"
+                      name="Descripcion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Destino Tb_pago_staging"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino Tb_pago_staging"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Destino Tb_pago_staging"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Connections[IDbConnection]"
+                  connectionManagerID="{DC9FF696-B447-410E-9D60-4CDCC7C407E1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.Staging_Jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_cliente]"
+                      cachedDataType="i4"
+                      cachedName="ID_cliente"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].Columns[nombre_cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nombre_cliente"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_cliente]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre_cliente]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].Columns[limite_credito]"
+                      cachedDataType="numeric"
+                      cachedName="limite_credito"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[limite_credito]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[limite_credito]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].Columns[fecha_pago]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_pago"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_pago]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_pago]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].Columns[id_transaccion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="id_transaccion"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_transaccion]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[id_transaccion]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[total]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[total]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_pago]"
+                      cachedDataType="i4"
+                      cachedName="ID_pago"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_pago_origen]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_pago]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_pago]"
+                      dataType="i4"
+                      name="ID_pago" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_pago_origen]"
+                      dataType="i4"
+                      name="ID_pago_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente]"
+                      dataType="i4"
+                      name="ID_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[limite_credito]"
+                      dataType="numeric"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_pago]"
+                      dataType="dbTimeStamp"
+                      name="fecha_pago" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_transaccion]"
+                      dataType="wstr"
+                      length="50"
+                      name="id_transaccion" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="15"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_pago_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pago_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_pago_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Destino Tb_pedido_staging"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino Tb_pedido_staging"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Destino Tb_pedido_staging"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Connections[IDbConnection]"
+                  connectionManagerID="{DC9FF696-B447-410E-9D60-4CDCC7C407E1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.Staging_Jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].Columns[fecha_pedido]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_pedido"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_pedido]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_pedido]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].Columns[fecha_entrega]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_entrega"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_entrega]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_entrega]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_producto]"
+                      cachedDataType="i4"
+                      cachedName="ID_producto"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_producto]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_producto]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].Columns[cantidad]"
+                      cachedDataType="i4"
+                      cachedName="cantidad"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[cantidad]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].Columns[precio_unidad]"
+                      cachedDataType="numeric"
+                      cachedName="precio_unidad"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[precio_unidad]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[precio_unidad]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_pedido]"
+                      cachedDataType="i4"
+                      cachedName="ID_pedido"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_pedido_origen]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_pedido]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_pedido]"
+                      dataType="i4"
+                      name="ID_pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_pedido_origen]"
+                      dataType="i4"
+                      name="ID_pedido_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_pedido]"
+                      dataType="dbTimeStamp"
+                      name="fecha_pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_entrega]"
+                      dataType="dbTimeStamp"
+                      name="fecha_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_producto]"
+                      dataType="i4"
+                      name="ID_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad]"
+                      dataType="i4"
+                      name="cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[precio_unidad]"
+                      dataType="numeric"
+                      name="precio_unidad"
+                      precision="15"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Destino Tb_producto_staging"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino Tb_producto_staging"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Destino Tb_producto_staging"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Connections[IDbConnection]"
+                  connectionManagerID="{DC9FF696-B447-410E-9D60-4CDCC7C407E1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.Staging_Jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[Categoria]"
+                      cachedDataType="i4"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[descripcion]"
+                      cachedDataType="nText"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[descripcion]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[proveedor]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="proveedor"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[proveedor]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[proveedor]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[precio_venta]"
+                      cachedDataType="numeric"
+                      cachedName="precio_venta"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[precio_venta]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[precio_venta]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[cantidad_en_stock]"
+                      cachedDataType="i2"
+                      cachedName="cantidad_en_stock"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_en_stock]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[cantidad_en_stock]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[dimensiones]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="dimensiones"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[dimensiones]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[dimensiones]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[Desc_Categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Desc_Categoria"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Desc_Categoria]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[Desc_Categoria]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_producto]"
+                      cachedDataType="i4"
+                      cachedName="ID_producto"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_producto_origen]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_producto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_producto]"
+                      dataType="i4"
+                      name="ID_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_producto_origen]"
+                      dataType="i4"
+                      name="ID_producto_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="70"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria]"
+                      dataType="i4"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[descripcion]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[proveedor]"
+                      dataType="wstr"
+                      length="50"
+                      name="proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[precio_venta]"
+                      dataType="numeric"
+                      name="precio_venta"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_en_stock]"
+                      dataType="i2"
+                      name="cantidad_en_stock" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[dimensiones]"
+                      dataType="wstr"
+                      length="25"
+                      name="dimensiones" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Desc_Categoria]"
+                      dataType="wstr"
+                      length="50"
+                      name="Desc_Categoria" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_producto_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_producto_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_producto_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino Tb_ubicacion_staging"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Destino Tb_ubicacion_staging"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Connections[IDbConnection]"
+                  connectionManagerID="{DC9FF696-B447-410E-9D60-4CDCC7C407E1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.Staging_Jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[pais]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="pais"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[pais]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[pais]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[region]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[ciudad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ciudad"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ciudad]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ciudad]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[codigo_postal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="codigo_postal"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[codigo_postal]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[codigo_postal]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[linea_direccion1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="linea_direccion1"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[linea_direccion1]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[linea_direccion1]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_empleado_rep_ventas]"
+                      cachedDataType="i4"
+                      cachedName="ID_empleado_rep_ventas"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_empleado_rep_ventas]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_empleado_rep_ventas]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_oficina]"
+                      cachedDataType="i4"
+                      cachedName="ID_oficina"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_oficina]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_oficina]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Descripcion"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Descripcion]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].Columns[ID_cliente]"
+                      cachedDataType="i4"
+                      cachedName="ID_cliente"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente_origen]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente_ubicacion]"
+                      dataType="i4"
+                      name="ID_cliente_ubicacion" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_cliente_origen]"
+                      dataType="i4"
+                      name="ID_cliente_origen" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[pais]"
+                      dataType="wstr"
+                      length="50"
+                      name="pais" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ciudad]"
+                      dataType="wstr"
+                      length="50"
+                      name="ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[codigo_postal]"
+                      dataType="wstr"
+                      length="10"
+                      name="codigo_postal" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[linea_direccion1]"
+                      dataType="wstr"
+                      length="50"
+                      name="linea_direccion1" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_empleado_rep_ventas]"
+                      dataType="i4"
+                      name="ID_empleado_rep_ventas" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_oficina]"
+                      dataType="i4"
+                      name="ID_oficina" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="10"
+                      name="Descripcion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen Tb_clientes_JDB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct cliente.ID_cliente, cliente.nombre_cliente, cliente.telefono, cliente.limite_credito
+from cliente
+order by cliente.ID_cliente desc</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Connections[IDbConnection]"
+                  connectionManagerID="{233045FC-B4C9-452D-9D1F-1C80381798AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_cliente]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]"
+                      name="ID_cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre_cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_cliente]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre_cliente]"
+                      name="nombre_cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[telefono]"
+                      length="15"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[telefono]"
+                      name="telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[limite_credito]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[limite_credito]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].Columns[limite_credito]"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_cliente]"
+                      dataType="i4"
+                      name="ID_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[telefono]"
+                      dataType="wstr"
+                      length="15"
+                      name="telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[limite_credito]"
+                      dataType="numeric"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_cliente]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_cliente]"
+                      name="ID_cliente" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre_cliente]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre_cliente]"
+                      name="nombre_cliente" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[telefono]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[telefono]"
+                      name="telefono" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[limite_credito]"
+                      dataType="numeric"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[limite_credito]"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen Tb_empleado_JDB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select empleado.ID_empleado, empleado.nombre, empleado.apellido1, empleado.email,
+empleado.puesto, oficina.ID_oficina, oficina.telefono, oficina.Descripcion
+from empleado, oficina
+order by empleado.ID_empleado asc</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Connections[IDbConnection]"
+                  connectionManagerID="{233045FC-B4C9-452D-9D1F-1C80381798AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_empleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_empleado]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_empleado]"
+                      name="ID_empleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[apellido1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[apellido1]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[apellido1]"
+                      name="apellido1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[email]"
+                      length="100"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[puesto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[puesto]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[puesto]"
+                      name="puesto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_oficina]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_oficina]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_oficina]"
+                      name="ID_oficina"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[telefono]"
+                      length="20"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[telefono]"
+                      name="telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[Descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Descripcion]"
+                      length="10"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].Columns[Descripcion]"
+                      name="Descripcion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_empleado]"
+                      dataType="i4"
+                      name="ID_empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[apellido1]"
+                      dataType="wstr"
+                      length="50"
+                      name="apellido1" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[puesto]"
+                      dataType="wstr"
+                      length="50"
+                      name="puesto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_oficina]"
+                      dataType="i4"
+                      name="ID_oficina" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[telefono]"
+                      dataType="wstr"
+                      length="20"
+                      name="telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="10"
+                      name="Descripcion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_empleado]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_empleado]"
+                      name="ID_empleado" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[apellido1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[apellido1]"
+                      name="apellido1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[email]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[puesto]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[puesto]"
+                      name="puesto" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_oficina]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_oficina]"
+                      name="ID_oficina" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[telefono]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[telefono]"
+                      name="telefono" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Descripcion]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Descripcion]"
+                      name="Descripcion" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Origen Tb_pago_JDB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen Tb_pago_JDB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select pago.ID_pago, pago.ID_cliente, cliente.nombre_cliente,
+cliente.limite_credito,pago.fecha_pago, pago.id_transaccion, pago.total
+from pago, cliente
+order by pago.ID_cliente asc</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Connections[IDbConnection]"
+                  connectionManagerID="{233045FC-B4C9-452D-9D1F-1C80381798AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_pago]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_pago]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_pago]"
+                      name="ID_pago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_cliente]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]"
+                      name="ID_cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre_cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_cliente]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre_cliente]"
+                      name="nombre_cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[limite_credito]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[limite_credito]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[limite_credito]"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_pago]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_pago]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_pago]"
+                      name="fecha_pago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[id_transaccion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[id_transaccion]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[id_transaccion]"
+                      name="id_transaccion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].Columns[total]"
+                      name="total"
+                      precision="15"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_pago]"
+                      dataType="i4"
+                      name="ID_pago" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_cliente]"
+                      dataType="i4"
+                      name="ID_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[limite_credito]"
+                      dataType="numeric"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_pago]"
+                      dataType="dbDate"
+                      name="fecha_pago" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[id_transaccion]"
+                      dataType="wstr"
+                      length="50"
+                      name="id_transaccion" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="15"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_pago]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_pago]"
+                      name="ID_pago" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_cliente]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_cliente]"
+                      name="ID_cliente" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre_cliente]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre_cliente]"
+                      name="nombre_cliente" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[limite_credito]"
+                      dataType="numeric"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[limite_credito]"
+                      name="limite_credito"
+                      precision="15"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[fecha_pago]"
+                      dataType="dbDate"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[fecha_pago]"
+                      name="fecha_pago" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[id_transaccion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[id_transaccion]"
+                      name="id_transaccion" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[total]"
+                      name="total"
+                      precision="15"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen Tb_pedido_JDB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct pedido.ID_pedido, pedido.fecha_pedido, pedido.fecha_entrega, 
+detalle_pedido.ID_producto, detalle_pedido.cantidad,
+detalle_pedido.precio_unidad
+from pedido
+Join detalle_pedido On pedido.ID_pedido=detalle_pedido.ID_pedido</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Connections[IDbConnection]"
+                  connectionManagerID="{233045FC-B4C9-452D-9D1F-1C80381798AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_pedido]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_pedido]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_pedido]"
+                      name="ID_pedido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_pedido]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_pedido]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_pedido]"
+                      name="fecha_pedido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_entrega]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_entrega]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[fecha_entrega]"
+                      name="fecha_entrega"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_producto]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_producto]"
+                      name="ID_producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[cantidad]"
+                      name="cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[precio_unidad]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_unidad]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].Columns[precio_unidad]"
+                      name="precio_unidad"
+                      precision="15"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_pedido]"
+                      dataType="i4"
+                      name="ID_pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_pedido]"
+                      dataType="dbDate"
+                      name="fecha_pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_entrega]"
+                      dataType="dbDate"
+                      name="fecha_entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_producto]"
+                      dataType="i4"
+                      name="ID_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad]"
+                      dataType="i4"
+                      name="cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_unidad]"
+                      dataType="numeric"
+                      name="precio_unidad"
+                      precision="15"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_pedido]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_pedido]"
+                      name="ID_pedido" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[fecha_pedido]"
+                      dataType="dbDate"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[fecha_pedido]"
+                      name="fecha_pedido" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[fecha_entrega]"
+                      dataType="dbDate"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[fecha_entrega]"
+                      name="fecha_entrega" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_producto]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_producto]"
+                      name="ID_producto" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[cantidad]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[cantidad]"
+                      name="cantidad" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[precio_unidad]"
+                      dataType="numeric"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[precio_unidad]"
+                      name="precio_unidad"
+                      precision="15"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Origen Tb_producto_JDB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen Tb_producto_JDB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select producto.ID_producto, producto.nombre, producto.Categoria,
+producto.descripcion, producto.proveedor, producto.precio_venta, 
+producto.cantidad_en_stock,producto.dimensiones,Categoria_producto.Desc_Categoria
+from producto, Categoria_producto
+order by producto.ID_producto</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Connections[IDbConnection]"
+                  connectionManagerID="{233045FC-B4C9-452D-9D1F-1C80381798AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_producto]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_producto]"
+                      name="ID_producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      length="70"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[descripcion]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[proveedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[proveedor]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[proveedor]"
+                      name="proveedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[precio_venta]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_venta]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[precio_venta]"
+                      name="precio_venta"
+                      precision="15"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[cantidad_en_stock]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_en_stock]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[cantidad_en_stock]"
+                      name="cantidad_en_stock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[dimensiones]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[dimensiones]"
+                      length="25"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[dimensiones]"
+                      name="dimensiones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[Desc_Categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Desc_Categoria]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].Columns[Desc_Categoria]"
+                      name="Desc_Categoria"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_producto]"
+                      dataType="i4"
+                      name="ID_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="70"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      dataType="i4"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion]"
+                      dataType="nText"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[proveedor]"
+                      dataType="wstr"
+                      length="50"
+                      name="proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_venta]"
+                      dataType="numeric"
+                      name="precio_venta"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_en_stock]"
+                      dataType="i2"
+                      name="cantidad_en_stock" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[dimensiones]"
+                      dataType="wstr"
+                      length="25"
+                      name="dimensiones" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Desc_Categoria]"
+                      dataType="wstr"
+                      length="50"
+                      name="Desc_Categoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_producto]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_producto]"
+                      name="ID_producto" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[descripcion]"
+                      dataType="nText"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[proveedor]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[proveedor]"
+                      name="proveedor" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[precio_venta]"
+                      dataType="numeric"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[precio_venta]"
+                      name="precio_venta"
+                      precision="15"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_en_stock]"
+                      dataType="i2"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_en_stock]"
+                      name="cantidad_en_stock" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[dimensiones]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[dimensiones]"
+                      name="dimensiones" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Desc_Categoria]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Desc_Categoria]"
+                      name="Desc_Categoria" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen Tb_ubicacion_JDB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select cliente.ID_cliente, cliente.pais, cliente.region, cliente.ciudad,
+cliente.codigo_postal, cliente.linea_direccion1, cliente.ID_empleado_rep_ventas,
+empleado.ID_oficina, oficina.Descripcion
+from empleado, cliente, oficina
+where cliente.ID_empleado_rep_ventas = empleado.ID_empleado
+order by cliente.pais</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Connections[IDbConnection]"
+                  connectionManagerID="{233045FC-B4C9-452D-9D1F-1C80381798AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q5J7EIQ_SQLEXPRESS.jardineria]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_cliente]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_cliente]"
+                      name="ID_cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[pais]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[pais]"
+                      name="pais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[region]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ciudad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ciudad]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ciudad]"
+                      name="ciudad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[codigo_postal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[codigo_postal]"
+                      length="10"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[codigo_postal]"
+                      name="codigo_postal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[linea_direccion1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[linea_direccion1]"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[linea_direccion1]"
+                      name="linea_direccion1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_empleado_rep_ventas]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_empleado_rep_ventas]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_empleado_rep_ventas]"
+                      name="ID_empleado_rep_ventas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_oficina]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_oficina]"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[ID_oficina]"
+                      name="ID_oficina"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[Descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Descripcion]"
+                      length="10"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].Columns[Descripcion]"
+                      name="Descripcion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_cliente]"
+                      dataType="i4"
+                      name="ID_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[pais]"
+                      dataType="wstr"
+                      length="50"
+                      name="pais" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ciudad]"
+                      dataType="wstr"
+                      length="50"
+                      name="ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[codigo_postal]"
+                      dataType="wstr"
+                      length="10"
+                      name="codigo_postal" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[linea_direccion1]"
+                      dataType="wstr"
+                      length="50"
+                      name="linea_direccion1" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_empleado_rep_ventas]"
+                      dataType="i4"
+                      name="ID_empleado_rep_ventas" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_oficina]"
+                      dataType="i4"
+                      name="ID_oficina" />
+                    <externalMetadataColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="10"
+                      name="Descripcion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_cliente]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_cliente]"
+                      name="ID_cliente" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[pais]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[pais]"
+                      name="pais" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[region]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ciudad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ciudad]"
+                      name="ciudad" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[codigo_postal]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[codigo_postal]"
+                      name="codigo_postal" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[linea_direccion1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[linea_direccion1]"
+                      name="linea_direccion1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_empleado_rep_ventas]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_empleado_rep_ventas]"
+                      name="ID_empleado_rep_ventas" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_oficina]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ID_oficina]"
+                      name="ID_oficina" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Descripcion]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[Descripcion]"
+                      name="Descripcion" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET]"
+              endId="Package\Extraccion_JDB\Destino Tb_producto_staging.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Extraccion_JDB\Origen Tb_producto_JDB.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET1]"
+              endId="Package\Extraccion_JDB\Destino Tb_pedido_staging.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Extraccion_JDB\Origen Tb_pedido_JDB.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET2]"
+              endId="Package\Extraccion_JDB\Destino Tb_empleado_staging.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Extraccion_JDB\Origen Tb_empleado_JDB.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET3]"
+              endId="Package\Extraccion_JDB\Destino Tb_pago_staging.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Extraccion_JDB\Origen Tb_pago_JDB.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET4]"
+              endId="Package\Extraccion_JDB\Destino Tb_ubicacion_staging.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET5]"
+              endId="Package\Extraccion_JDB\Destino Tb_clientes_staging.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Extraccion_JDB\Origen Tb_clientes_JDB.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transformacion_JDB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{54008FFD-092C-4F3F-BFD6-494BCE2CC427}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transformacion_JDB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Extraccion_JDB"
+          TopLeft="156,105" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Transformacion_JDB"
+          TopLeft="333,251" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extraccion_JDB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Extraccion_JDB\Origen Tb_producto_JDB"
+          TopLeft="31,33" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Extraccion_JDB\Destino Tb_producto_staging"
+          TopLeft="135,126" />
+        <EdgeLayout
+          Id="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET]"
+          TopLeft="133,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113.5,51"
+              Start="0,0"
+              End="113.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="109.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="109.5,25.5"
+                    Point2="113.5,25.5"
+                    Point3="113.5,29.5" />
+                  <mssgle:LineSegment
+                    End="113.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Extraccion_JDB\Origen Tb_pedido_JDB"
+          TopLeft="119,243" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Extraccion_JDB\Destino Tb_pedido_staging"
+          TopLeft="183,363" />
+        <EdgeLayout
+          Id="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET1]"
+          TopLeft="216,285">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.5,78"
+              Start="0,0"
+              End="73.5,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="4,39" />
+                  <mssgle:LineSegment
+                    End="69.5,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.5,39"
+                    Point2="73.5,39"
+                    Point3="73.5,43" />
+                  <mssgle:LineSegment
+                    End="73.5,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Extraccion_JDB\Origen Tb_empleado_JDB"
+          TopLeft="370,20" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Extraccion_JDB\Destino Tb_empleado_staging"
+          TopLeft="459,147" />
+        <EdgeLayout
+          Id="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET2]"
+          TopLeft="474.5,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.5,85"
+              Start="0,0"
+              End="98.5,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5"
+                    Point2="0,42.5"
+                    Point3="4,42.5" />
+                  <mssgle:LineSegment
+                    End="94.5,42.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.5,42.5"
+                    Point2="98.5,42.5"
+                    Point3="98.5,46.5" />
+                  <mssgle:LineSegment
+                    End="98.5,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Extraccion_JDB\Origen Tb_pago_JDB"
+          TopLeft="457,238" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Extraccion_JDB\Destino Tb_pago_staging"
+          TopLeft="539,337" />
+        <EdgeLayout
+          Id="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET3]"
+          TopLeft="549.5,280">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.5,57"
+              Start="0,0"
+              End="91.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="87.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.5,28.5"
+                    Point2="91.5,28.5"
+                    Point3="91.5,32.5" />
+                  <mssgle:LineSegment
+                    End="91.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB"
+          TopLeft="746,16" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Extraccion_JDB\Destino Tb_ubicacion_staging"
+          TopLeft="767,124" />
+        <EdgeLayout
+          Id="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET4]"
+          TopLeft="849.5,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5,66"
+              Start="0,0"
+              End="30.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="26.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,33"
+                    Point2="30.5,33"
+                    Point3="30.5,37" />
+                  <mssgle:LineSegment
+                    End="30.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Extraccion_JDB\Origen Tb_clientes_JDB"
+          TopLeft="911,260" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Extraccion_JDB\Destino Tb_clientes_staging"
+          TopLeft="872,363" />
+        <EdgeLayout
+          Id="Package\Extraccion_JDB.Paths[Salida de origen de ADO NET5]"
+          TopLeft="1010,302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.5,61"
+              Start="0,0"
+              End="-29.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-25.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.5,30.5"
+                    Point2="-29.5,30.5"
+                    Point3="-29.5,34.5" />
+                  <mssgle:LineSegment
+                    End="-29.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Origen Tb_producto_JDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Destino Tb_producto_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Origen Tb_pedido_JDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Destino Tb_pedido_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Origen Tb_empleado_JDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Destino Tb_empleado_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Origen Tb_pago_JDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Destino Tb_pago_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Origen Tb_ubicacion_JDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Destino Tb_ubicacion_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Origen Tb_clientes_JDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraccion_JDB\Destino Tb_clientes_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
